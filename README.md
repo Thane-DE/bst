@@ -7,3 +7,5 @@ CHANGELOG - DEBUG:
 
 0.1
 - Initial Version
+- Added headers for booktree and books
+- Added books.c library
