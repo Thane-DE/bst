@@ -14,8 +14,8 @@ struct Book *newBook(unsigned long ISBN_nr, char *author_name, char *book_title)
 
 	//Assigning Values
 	new_Book->ISBN = ISBN_nr;
-	new_Book->author_name = author_name;
-	new_Book->book_title = book_title;
+	new_Book->author_name = *author_name;
+	new_Book->book_title = *book_title;
 
 	return *newBook;
 }

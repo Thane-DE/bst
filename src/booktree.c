@@ -70,7 +70,11 @@ void bst_insert(struct TreeNode *tree_node, struct TreeNode *new_node) {
 
 void bst_clear(struct TreeNode *tree_node) {
 	if (tree_node->left == NULL && tree_node->right == NULL) {
-		//There are no children - free the node itself
+		//There are no children - free the book and the node itself
+		destroyBook(tree_node->book);
+
+		tree_node->key = NULL;
+
 		free((void*) tree_node);
 		return;
 	}
@@ -84,7 +88,7 @@ void bst_clear(struct TreeNode *tree_node) {
 void printData(struct TreeNode *tree_node) {
 	printf("ISBN:\t\t%lu\n", *tree_node->key); //Prints the ISBN
 	printf("Author:\t\t%s\n", tree_node->book->author_name); //Author
-	printf("Name:\t\t%s\n", tree_node->book->book_title); //Title
+	printf("Name:\t\t%s\n\n", tree_node->book->book_title); //Title
 	return;
 }
 
@@ -136,9 +140,9 @@ unsigned long getBookKey(struct TreeNode *tree_node){
 }
 
 const char *getBookTitle(struct TreeNode *tree_node){
-	return tree_node->book->book_title;
+	return getTitle(tree_node->book);
 }
 
 const char *getBookAuthor(struct TreeNode *tree_node){
-	return tree_node->book->author_name;
+	return getAuthor(tree_node->book);
 }

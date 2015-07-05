@@ -9,7 +9,7 @@ struct Book {
 
 struct Book *newBook(unsigned long ISBN_nr, char *author_name, char *book_title);
 
-void destroy_book(struct Book *the_book);
+void destroyBook(struct Book *the_book);
 
 unsigned long getISBN(struct Book *the_book);
 
