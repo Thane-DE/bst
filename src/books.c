@@ -8,16 +8,20 @@ struct Book *newBook(unsigned long ISBN_nr, char *author_name, char *book_title)
 	struct Book *new_Book;
 	new_Book = (struct Book*) malloc(sizeof(struct Book));
 
+	char* author_name_a = malloc(sizeof(char) *1024);
+	char* book_title_a = malloc(sizeof(char) * 1024);
+
+
 	//Maximum Length of 1024-\n characters
-	new_Book->author_name = malloc(sizeof(char) * 1024);
-	new_Book->book_title = malloc(sizeof(char) * 1024);
+	new_Book->author_name = author_name_a;
+	new_Book->book_title = book_title_a;
 
 	//Assigning Values
 	new_Book->ISBN = ISBN_nr;
-	new_Book->author_name = *author_name;
-	new_Book->book_title = *book_title;
+	new_Book->author_name = author_name;
+	new_Book->book_title = book_title;
 
-	return *newBook;
+	return new_Book;
 }
 
 void destroyBook(struct Book *the_book) {

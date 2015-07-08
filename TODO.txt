@@ -1,6 +1,9 @@
 DO:
  - VALGRIND EVERYTIHNG
- - TEST EVERYTHING
+ - Fix bst_clear()
+ - Test bst_search() 
+ 
 OPTIONAL:
 
 DONE:
+- Implement everything

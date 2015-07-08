@@ -1,9 +1,14 @@
 # bst
 
-Current Version - Debug:	0.2
-Current Version - Release:	- 0.2 
+Current Version - Debug:	0.3
+Current Version - Release:	-
 
-CHANGELOG - DEBUG:
+CHANGELOG:
+
+
+0.3
+- Fixed the wrong insertion - Nodes can now be inserted
+- All print fucntions work!
 
 0.2
 - Added all libraries

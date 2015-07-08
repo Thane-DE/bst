@@ -17,7 +17,7 @@ struct TreeNode *new_tree_node(unsigned long ISBN, char *author, char *title) {
 	new_tree_node->left = NULL;
 	new_tree_node->right = NULL;
 
-	*new_tree_node->key = new_tree_node->book->ISBN;
+	new_tree_node->key = ISBN;
 
 	return new_tree_node;
 }
@@ -45,7 +45,7 @@ struct TreeNode *bst_search(struct TreeNode *tree_node, unsigned long key) {
 }
 
 void bst_insert(struct TreeNode *tree_node, struct TreeNode *new_node) {
-	if (*new_node->key < *tree_node->key) {
+	if (new_node->key < tree_node->key) {
 		//If the key is smaller -> insert left
 		//Check whether you have to recurse, or whether there is no node anymore
 		if (tree_node->left == NULL) {
@@ -74,6 +74,7 @@ void bst_clear(struct TreeNode *tree_node) {
 		destroyBook(tree_node->book);
 
 		tree_node->key = NULL;
+		tree_node->book = NULL;
 
 		free((void*) tree_node);
 		return;
@@ -86,7 +87,7 @@ void bst_clear(struct TreeNode *tree_node) {
 }
 
 void printData(struct TreeNode *tree_node) {
-	printf("ISBN:\t\t%lu\n", *tree_node->key); //Prints the ISBN
+	printf("ISBN:\t\t%lu\n", tree_node->key); //Prints the ISBN
 	printf("Author:\t\t%s\n", tree_node->book->author_name); //Author
 	printf("Name:\t\t%s\n\n", tree_node->book->book_title); //Title
 	return;
@@ -99,7 +100,7 @@ void preorderPrint(struct TreeNode *tree_node) {
 	if (tree_node->left != NULL) {
 		//There is a left node, so go on with it
 		preorderPrint(tree_node->left);
-	} else if (tree_node->right != NULL) {
+	} if (tree_node->right != NULL) {
 		//There is a right node, so go on with it
 		preorderPrint(tree_node->right);
 	} else
@@ -136,7 +137,7 @@ void postorderPrint(struct TreeNode *tree_node) {
 }
 
 unsigned long getBookKey(struct TreeNode *tree_node){
-	return *tree_node->key;
+	return tree_node->key;
 }
 
 const char *getBookTitle(struct TreeNode *tree_node){
