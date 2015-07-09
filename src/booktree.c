@@ -82,7 +82,7 @@ void bst_clear(struct TreeNode *tree_node) {
 
 	if (tree_node->left != NULL)
 		bst_clear(tree_node->left); //There is a left child, so go on with left
-	else
+	if(tree_node->right != NULL)
 		bst_clear(tree_node->right); //There still is a right child, so go on on right
 }
 
